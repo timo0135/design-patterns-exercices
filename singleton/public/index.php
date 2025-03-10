@@ -2,6 +2,11 @@
 require('../vendor/autoload.php');
 
 
-# TODO: Récuperer une instance de Config
-# Afficher une valeur contenu dans config.php
-# Récupérer une seconde instance de Config et vérifié que les deux instances sont identiques
+use App\Config;
+
+$config = Config::getInstance();
+$dbHost = $config->get('db')['host'];
+$apiKey = $config->get('apiKey');
+
+echo "Database Host: " . $dbHost . PHP_EOL;
+echo "API Key: " . $apiKey . PHP_EOL;
